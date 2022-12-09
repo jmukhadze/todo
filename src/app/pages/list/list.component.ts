@@ -1,7 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {TodoService} from "../../common/services/todo.service";
 import {ITodo} from "../../common/interfaces/todo.intarface";
-import {UserRole} from "../../interface";
+import {IUser, UserRole, UserStatus } from "../../interface";
+
 
 @Component({
   selector: 'app-list',
@@ -11,6 +12,10 @@ import {UserRole} from "../../interface";
 
 export class ListComponent implements OnInit {
   todos: ITodo[]=[]
+  @Input() user?: IUser;
+  changeStatus(status: UserStatus){
+    console.log('change status:', status);
+  }
 
   constructor(
     private todoService:TodoService,
@@ -37,7 +42,7 @@ delete(id:string){
         this.getTodos()
       })
   }
-  addUser(fullName: string, role: string){
+  addUserHandler(fullName: string, role: string){
     console.log(fullName, role as UserRole);
   }
 }

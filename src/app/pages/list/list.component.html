@@ -18,7 +18,7 @@
           </li>
         </ul>
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-          <button (click)="addUser (fullName.value, role.value)" type="button" class="btn btn-outline-success">ავტორიზაცია</button>
+          <button (click)="addUserHandler (fullName.value, role.value)" type="button" class="btn btn-outline-success">ავტორიზაცია</button>
           <button type="button" class="btn btn-outline-danger">წაშლა</button>
             <input type="text" class="form-control" #fullName>
             <select  #role  class="form-select" >
@@ -64,10 +64,15 @@
       <td>{{todo.createdAt | date:'dd.MM.yy'}}</td>
       <td>
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-<!--          <button type="button" class="btn btn-outline-success">ADD</button>-->
           <button type="button" class="btn btn-outline-danger" (click)="delete(todo.id)">DELETE</button>
           <button type="button" class="btn btn-outline-primary" routerLink="/todo/edit/{{todo.id}}" >EDIT</button>
           <button type="button" class="btn btn-outline-success" (click)="complete(todo.id)">COMPLETE</button>
+        </div>
+        <div>{{user?.fullName}}</div>
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+          <button type="button" class="btn btn-outline-danger" (click)="changeStatus('active')">ACTIVE</button>
+          <button type="button" class="btn btn-outline-danger" (click)="changeStatus('inactive')">DEACTIVACION</button>
+          <button type="button" class="btn btn-outline-danger" (click)="changeStatus('banned')">BAN</button>
         </div>
     </tr>
     </ng-container>

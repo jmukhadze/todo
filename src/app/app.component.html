@@ -1,3 +1,9 @@
 <div>
-  <app-add-user></app-add-user>
+  <app-add-user (addUser)="addUser($event)"></app-add-user>
+</div>
+
+<div>
+  <ng-container *ngFor="let user of users">
+    <app-user-item [user]="user"></app-user-item>
+  </ng-container>
 </div>

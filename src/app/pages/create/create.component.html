@@ -68,7 +68,18 @@
           <div class="invalid-feedback">Example invalid select feedback</div>
           <hr class="my-4">
 
-          <button class="w-100 btn btn-primary btn-lg" type="submit">{{todoId?'კორექტირება':'დამატება'}}</button>
+          <button class="w-100 btn btn-primary btn-sm" type="submit">{{todoId?'კორექტირება':'დამატება'}}</button>
+          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <button (click)="addUserHandler (fullName.value, role.value)" type="button" class="btn btn-outline-success">ავტორიზაცია</button>
+            <button type="button" class="btn btn-outline-danger">წაშლა</button>
+            <input type="text" class="form-control" #fullName>
+            <select  #role  class="form-select" >
+              <option value="admin">admin</option>
+              <option value="user">user</option>
+              <option value="guest">guest</option>
+            </select>
+          </div>
+
         </form>
       </div>
     </div>

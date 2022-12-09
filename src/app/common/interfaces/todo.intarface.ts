@@ -15,5 +15,6 @@ export  interface ITodo{
    removedAt?:Date
    responsiblePerson: IPerson
    responsiblePersonId?: string
+  fullName: string
  }
 
